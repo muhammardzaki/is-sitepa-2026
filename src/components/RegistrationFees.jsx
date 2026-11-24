@@ -109,6 +109,8 @@ export default function RegistrationFees() {
             <div className="flex justify-center">
               <a
                 href={siteConfig.links.registerNow || "#registration"}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 px-8 sm:px-10 py-3.5 sm:py-4 rounded-xl bg-crimson hover:bg-crimson-hover text-white font-heading font-extrabold text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
               >
                 <i className="fa-solid fa-ticket text-amber-300 text-base"></i>

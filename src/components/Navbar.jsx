@@ -117,14 +117,9 @@ export default function Navbar() {
           {/* Right Action Buttons */}
           <div className="flex items-center gap-2 xl:gap-3 shrink-0">
             <a
-              href="#dates"
-              className="hidden sm:inline-flex items-center gap-1.5 xl:gap-2 px-3 xl:px-4 py-2 rounded-lg border border-deepblue text-deepblue hover:bg-deepblue/5 text-xs xl:text-sm font-semibold transition-all duration-200 whitespace-nowrap"
-            >
-              <i className="fa-solid fa-file-arrow-up text-xs"></i>
-              <span>Submit Paper</span>
-            </a>
-            <a
-              href="#registration"
+              href={siteConfig.links.registerNow}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 xl:gap-2 px-3.5 sm:px-4 xl:px-5 py-2 sm:py-2.5 rounded-lg bg-crimson hover:bg-crimson-hover text-white text-xs xl:text-sm font-semibold shadow-sm hover:shadow transition-all duration-200 whitespace-nowrap"
             >
               <i className="fa-solid fa-ticket text-xs"></i>
@@ -170,14 +165,9 @@ export default function Navbar() {
           })}
           <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
             <a
-              href="#dates"
-              onClick={closeMobileMenu}
-              className="w-full text-center py-2.5 border border-deepblue text-deepblue rounded-lg font-semibold text-sm hover:bg-deepblue/5 transition-colors"
-            >
-              Submit Paper
-            </a>
-            <a
-              href="#registration"
+              href={siteConfig.links.registerNow}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={closeMobileMenu}
               className="w-full text-center py-2.5 bg-crimson hover:bg-crimson-hover text-white rounded-lg font-semibold text-sm transition-colors"
             >

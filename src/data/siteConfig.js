@@ -39,7 +39,7 @@ export const siteConfig = {
   // Centralized URLs for CTA buttons and assets
   links: {
     submitAbstract: "#dates",
-    registerNow: "#registration",
+    registerNow: "https://docs.google.com/forms/d/e/1FAIpQLSeM7gfCowXzkbsadp45Oqwh_MhIr6GmMyK0kr5f3QXT7s9ctA/viewform",
     downloadCFP: "#",
     downloadTemplate: "#",
     venueGoogleMaps: "https://maps.google.com/?q=Universiti+Teknologi+Malaysia+Skudai+Johor+Bahru",
