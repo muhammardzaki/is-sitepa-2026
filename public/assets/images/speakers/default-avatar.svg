@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#E2E8F0"/>
+    </linearGradient>
+    <linearGradient id="crimsonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B131E"/>
+      <stop offset="100%" stop-color="#560911"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Circle with subtle border -->
+  <circle cx="100" cy="100" r="98" fill="url(#bgGrad)" stroke="#CBD5E1" stroke-width="2"/>
+  
+  <!-- Subtle inner decorative ring -->
+  <circle cx="100" cy="100" r="90" fill="none" stroke="#94A3B8" stroke-width="1" stroke-dasharray="4,4" opacity="0.6"/>
+
+  <!-- Academic / Scholar Silhouette -->
+  <!-- Head -->
+  <circle cx="100" cy="72" r="32" fill="#64748B"/>
+  
+  <!-- Body / Shoulders -->
+  <path d="M46 165 C46 128, 70 114, 100 114 C130 114, 154 128, 154 165 C154 175, 145 184, 134 184 L66 184 C55 184, 46 175, 46 165 Z" fill="#64748B"/>
+  
+  <!-- Academic Gown Collar / Tie accent in IS-SITEPA Crimson -->
+  <path d="M92 115 L100 142 L108 115 Z" fill="url(#crimsonGrad)"/>
+
+  <!-- Subdued badge indicator in bottom corner -->
+  <circle cx="150" cy="150" r="20" fill="url(#crimsonGrad)" stroke="#FFFFFF" stroke-width="3"/>
+  <path d="M144 150 L148 154 L157 145" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

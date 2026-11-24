@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #8B131E 0%, #560911 55%, #2D0408 100%);
+  --primary-crimson: #8B131E;
+  --primary-crimson-hover: #6E0D16;
+  --secondary-blue: #0A4D7C;
+  --secondary-highlight: #008FD5;
+  --eco-green: #4E8C2A;
+}
+
+/* Original Static Crimson Gradient preserved from Stitch */
+.bg-crimson-gradient {
+  background: linear-gradient(135deg, #8B131E 0%, #560911 55%, #2D0408 100%);
+}
+
+/* Smooth Floating Motions for Blue and Green Ambient Glows */
+@keyframes floatBlueGlow {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.32;
+  }
+  33% {
+    transform: translate(70px, -40px) scale(1.18);
+    opacity: 0.48;
+  }
+  66% {
+    transform: translate(35px, 55px) scale(0.92);
+    opacity: 0.26;
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.32;
+  }
+}
+
+@keyframes floatGreenGlow {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.24;
+  }
+  33% {
+    transform: translate(-60px, 45px) scale(1.15);
+    opacity: 0.38;
+  }
+  66% {
+    transform: translate(-30px, -50px) scale(0.9);
+    opacity: 0.18;
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.24;
+  }
+}
+
+.animate-glow-blue {
+  animation: floatBlueGlow 12s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-glow-green {
+  animation: floatGreenGlow 14s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-glow-blue,
+  .animate-glow-green {
+    animation: none !important;
+  }
+}
+
+.hero-mesh-overlay {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+                    radial-gradient(rgba(10, 77, 124, 0.25) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+}
+
+.subtle-grid {
+  background-size: 24px 24px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.88;
+    transform: scale(1.03);
+  }
+}
+
+.pulse-badge {
+  animation: pulse-slow 2.5s infinite ease-in-out;
+}
+
+/* Ensure smooth section scrolling with offset for the sticky 80px navbar */
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

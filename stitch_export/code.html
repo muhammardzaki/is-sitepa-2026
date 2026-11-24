@@ -1,0 +1,1001 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>IS-SITEPA 2026 | International Symposium on Sustainable Infrastructure, Transportation, Environment, Planning, and Architecture</title>
+<!-- Google Fonts: Plus Jakarta Sans & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- FontAwesome Icons for academic clarity -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Custom Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            crimson: {
+              DEFAULT: '#8B131E',
+              dark: '#560911',
+              deep: '#2D0408',
+              hover: '#720E18'
+            },
+            deepblue: {
+              DEFAULT: '#0A4D7C',
+              light: '#0E6BA8',
+              dark: '#073656'
+            },
+            ecogreen: {
+              DEFAULT: '#4E8C2A',
+              light: '#62B035',
+              dark: '#38651E'
+            }
+          },
+          fontFamily: {
+            heading: ['Plus Jakarta Sans', 'sans-serif'],
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom CSS Styling -->
+<style data-purpose="custom-gradients">
+    .bg-crimson-gradient {
+      background: linear-gradient(135deg, #8B131E 0%, #560911 55%, #2D0408 100%);
+    }
+    .hero-mesh-overlay {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+                        radial-gradient(rgba(10, 77, 124, 0.25) 1px, transparent 1px);
+      background-size: 32px 32px;
+      background-position: 0 0, 16px 16px;
+    }
+    .subtle-grid {
+      background-size: 24px 24px;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+    }
+  </style>
+<style data-purpose="animations">
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.03); }
+    }
+    .pulse-badge {
+      animation: pulse-slow 3s infinite ease-in-out;
+    }
+  </style>
+<!-- END: Custom CSS Styling -->
+</head>
+<body class="bg-slate-50 font-sans text-slate-800 antialiased selection:bg-crimson selection:text-white">
+<!-- BEGIN: StickyNavbar -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all duration-200" id="main-nav">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<!-- Logo and Co-Host Affiliation -->
+<div class="flex items-center gap-3">
+<a aria-label="IS-SITEPA Home" class="flex items-center gap-3 group focus:outline-none" href="#hero">
+<img alt="IS-SITEPA Logo" class="h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4_YqtIE8gU7Q0zoAr4UyMfvKCm32aIYzlRCQkmcJfjghDPmqbd7JpU2DZILIaBrSpzZ5RWJZT1i3INncTqr4Eei7iyMnOkF7mg7SyUPdRpSEqcRX4xoKHrJaHg1qCKwXMgP65fWB9raWMO42i1pf5re2n51Eq8esWyjSc0J-33jJjhfvgrAJxWd8hfPhcdsAoPm4B7cPOezFCc9oI50wciGslMal6h2BnULXXtIvFEjG7YBVXZD6aDw">
+<div class="hidden sm:flex flex-col border-l border-slate-200 pl-3">
+<span class="text-xs font-bold uppercase tracking-wider text-crimson font-heading">IS-SITEPA 2026</span>
+<span class="text-[11px] font-medium text-slate-500">FT UNHAS × FKA &amp; FABU UTM</span>
+</div>
+</a>
+</div>
+<!-- Center Desktop Navigation Links -->
+<nav aria-label="Primary Navigation" class="hidden lg:flex items-center gap-7">
+<a class="text-sm font-semibold text-slate-700 hover:text-crimson transition-colors duration-150" href="#hero">Home</a>
+<a class="text-sm font-semibold text-slate-700 hover:text-crimson transition-colors duration-150" href="#about">About</a>
+<a class="text-sm font-semibold text-slate-700 hover:text-crimson transition-colors duration-150" href="#topics">Topics</a>
+<a class="text-sm font-semibold text-slate-700 hover:text-crimson transition-colors duration-150" href="#speakers">Speakers</a>
+<a class="text-sm font-semibold text-slate-700 hover:text-crimson transition-colors duration-150" href="#dates">Dates</a>
+<a class="text-sm font-semibold text-slate-700 hover:text-crimson transition-colors duration-150" href="#registration">Registration</a>
+<a class="text-sm font-semibold text-slate-700 hover:text-crimson transition-colors duration-150" href="#venue">Venue</a>
+</nav>
+<!-- Right Action Buttons -->
+<div class="flex items-center gap-3">
+<a class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-deepblue text-deepblue hover:bg-deepblue/5 text-xs lg:text-sm font-semibold transition-all duration-200" href="#dates">
+<i class="fa-solid fa-file-arrow-up text-xs"></i>
+<span>Submit Paper</span>
+</a>
+<a class="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg bg-crimson hover:bg-crimson-hover text-white text-xs lg:text-sm font-semibold shadow-sm hover:shadow transition-all duration-200" href="#registration">
+<i class="fa-solid fa-ticket text-xs"></i>
+<span>Register Now</span>
+</a>
+<!-- Mobile Menu Button -->
+<button aria-label="Toggle navigation menu" class="lg:hidden p-2 rounded-md text-slate-600 hover:text-crimson hover:bg-slate-100 focus:outline-none" id="mobile-menu-toggle" type="button">
+<i class="fa-solid fa-bars text-xl"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Mobile Drawer Menu (Hidden by default) -->
+<div class="hidden lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-2" id="mobile-menu">
+<a class="block py-2 text-sm font-semibold text-slate-700 hover:text-crimson" href="#hero">Home</a>
+<a class="block py-2 text-sm font-semibold text-slate-700 hover:text-crimson" href="#about">About</a>
+<a class="block py-2 text-sm font-semibold text-slate-700 hover:text-crimson" href="#topics">Topics</a>
+<a class="block py-2 text-sm font-semibold text-slate-700 hover:text-crimson" href="#speakers">Speakers</a>
+<a class="block py-2 text-sm font-semibold text-slate-700 hover:text-crimson" href="#dates">Important Dates</a>
+<a class="block py-2 text-sm font-semibold text-slate-700 hover:text-crimson" href="#registration">Registration</a>
+<a class="block py-2 text-sm font-semibold text-slate-700 hover:text-crimson" href="#venue">Venue</a>
+<div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
+<a class="w-full text-center py-2.5 border border-deepblue text-deepblue rounded-lg font-semibold text-sm" href="#dates">Submit Paper</a>
+</div>
+</div>
+</header>
+<!-- END: StickyNavbar -->
+<main>
+<!-- BEGIN: HeroSection -->
+<section class="relative overflow-hidden bg-crimson-gradient text-white py-16 sm:py-24 lg:py-28" id="hero">
+<!-- Mesh Pattern & Ambient Glows -->
+<div class="absolute inset-0 hero-mesh-overlay opacity-30 pointer-events-none"></div>
+<div class="absolute top-1/4 -left-32 w-96 h-96 bg-deepblue/30 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-10 right-0 w-96 h-96 bg-ecogreen/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Co-organizers Pill Badge -->
+<div class="flex justify-center mb-6">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-medium text-slate-100 shadow-inner">
+<span class="text-base">🏛️</span>
+<span>Faculty of Engineering UNHAS × Faculty of Civil Engineering &amp; FABU Universiti Teknologi Malaysia</span>
+</div>
+</div>
+<!-- Main Title & Theme -->
+<div class="text-center max-w-4xl mx-auto space-y-4">
+<h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            IS-SITEPA <span class="text-amber-300">2026</span>
+</h1>
+<p class="text-base sm:text-lg lg:text-xl font-medium text-slate-200 tracking-normal max-w-3xl mx-auto">
+            International Symposium on Sustainable Infrastructure, Transportation, Environment, Planning, and Architecture
+          </p>
+<div class="pt-2">
+<p class="inline-block px-4 py-2 rounded-xl bg-black/25 border border-white/10 text-xs sm:text-sm md:text-base font-semibold text-emerald-300">
+<i class="fa-solid fa-leaf mr-1.5"></i>
+              Theme: “Engineering Resilient Futures: Innovating Low-Carbon Infrastructure &amp; Climate-Adaptive Built Environments”
+            </p>
+</div>
+</div>
+<!-- Symposium Metadata Badges -->
+<div class="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm">
+<div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 backdrop-blur-md border border-white/15">
+<i class="fa-regular fa-calendar-days text-amber-300"></i>
+<span class="font-medium">October 28–29, 2026</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 backdrop-blur-md border border-white/15">
+<i class="fa-solid fa-location-dot text-rose-300"></i>
+<span class="font-medium">Grand Claro Hotel, Makassar &amp; Hybrid Online</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 backdrop-blur-md border border-white/15">
+<i class="fa-solid fa-book-bookmark text-sky-300"></i>
+<span class="font-medium">Scopus / IEEE / AIP Indexed Proceedings</span>
+</div>
+</div>
+<!-- Glassmorphism 4-box Countdown Timer -->
+<div class="mt-10 max-w-xl mx-auto" data-purpose="countdown-container">
+<div class="grid grid-cols-4 gap-2.5 sm:gap-4 text-center">
+<div class="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl p-3 sm:p-4 shadow-lg">
+<span class="block font-heading text-2xl sm:text-4xl font-extrabold text-white" id="days">142</span>
+<span class="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-slate-300">Days</span>
+</div>
+<div class="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl p-3 sm:p-4 shadow-lg">
+<span class="block font-heading text-2xl sm:text-4xl font-extrabold text-white" id="hours">18</span>
+<span class="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-slate-300">Hours</span>
+</div>
+<div class="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl p-3 sm:p-4 shadow-lg">
+<span class="block font-heading text-2xl sm:text-4xl font-extrabold text-white" id="minutes">45</span>
+<span class="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-slate-300">Minutes</span>
+</div>
+<div class="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl p-3 sm:p-4 shadow-lg">
+<span class="block font-heading text-2xl sm:text-4xl font-extrabold text-white" id="seconds">30</span>
+<span class="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-slate-300">Seconds</span>
+</div>
+</div>
+</div>
+<!-- Dual Call-to-Action Buttons -->
+<div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-900 font-heading font-bold text-sm sm:text-base shadow-lg shadow-amber-400/20 transition-all duration-200 transform hover:-translate-y-0.5" href="#dates">
+<span>Submit Your Abstract</span>
+<i class="fa-solid fa-arrow-right text-xs"></i>
+</a>
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-white/15 hover:bg-white/25 border border-white/30 text-white font-semibold text-sm sm:text-base backdrop-blur-md transition-all duration-200" href="#dates">
+<i class="fa-regular fa-file-pdf text-rose-300"></i>
+<span>Download Call for Papers (PDF)</span>
+</a>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: AboutSection -->
+<section class="py-16 sm:py-24 bg-white subtle-grid border-b border-slate-200" id="about">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left Column: Overview Description -->
+<div class="lg:col-span-7 space-y-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-deepblue/10 text-deepblue text-xs font-bold uppercase tracking-wider">
+<i class="fa-solid fa-circle-nodes"></i>
+<span>About The Symposium</span>
+</div>
+<h2 class="font-heading text-2xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
+              Bridging Cutting-Edge Engineering with Climate-Resilient Urban Realities
+            </h2>
+<p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+              The <strong class="text-slate-800">International Symposium on Sustainable Infrastructure, Transportation, Environment, Planning, and Architecture (IS-SITEPA 2026)</strong> is a premier interdisciplinary academic conference jointly organized by the <strong>Faculty of Engineering, Universitas Hasanuddin (FT UNHAS)</strong>, Indonesia, and the <strong>Faculty of Civil Engineering (FKA) &amp; Faculty of Built Environment and Surveying (FABU), Universiti Teknologi Malaysia (UTM)</strong>.
+            </p>
+<p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+              As climate volatility escalates across the Asia-Pacific and equatorial zones, civil infrastructure and urban habitats demand urgent transformation. IS-SITEPA 2026 unites academics, researchers, urban authorities, and industry pioneers to exchange breakthroughs in net-zero structural designs, electric transit systems, disaster-resilient water systems, and smart spatial planning.
+            </p>
+<!-- Key Features Bullet List -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-ecogreen/15 text-ecogreen flex items-center justify-center shrink-0 mt-0.5">
+<i class="fa-solid fa-check text-xs"></i>
+</div>
+<span class="text-sm font-medium text-slate-700">High-Impact Scopus/WoS Publication Outlets</span>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-ecogreen/15 text-ecogreen flex items-center justify-center shrink-0 mt-0.5">
+<i class="fa-solid fa-check text-xs"></i>
+</div>
+<span class="text-sm font-medium text-slate-700">Collaborative Bilateral Research Networks</span>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-ecogreen/15 text-ecogreen flex items-center justify-center shrink-0 mt-0.5">
+<i class="fa-solid fa-check text-xs"></i>
+</div>
+<span class="text-sm font-medium text-slate-700">Direct Policy Dialogues with Regional Leaders</span>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-ecogreen/15 text-ecogreen flex items-center justify-center shrink-0 mt-0.5">
+<i class="fa-solid fa-check text-xs"></i>
+</div>
+<span class="text-sm font-medium text-slate-700">Flexible Hybrid (Onsite &amp; Virtual) Sessions</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Conference At A Glance Card -->
+<div class="lg:col-span-5">
+<div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-2xl p-6 sm:p-8 shadow-xl border border-slate-700/60 relative overflow-hidden">
+<div class="absolute -right-8 -bottom-8 w-40 h-40 bg-crimson/30 rounded-full blur-2xl"></div>
+<div class="flex items-center justify-between pb-6 border-b border-slate-700">
+<h3 class="font-heading text-lg font-bold tracking-tight text-white flex items-center gap-2">
+<i class="fa-solid fa-chart-pie text-amber-400"></i>
+                  Conference at a Glance
+                </h3>
+<span class="text-[11px] font-semibold tracking-wider uppercase px-2.5 py-1 rounded bg-slate-800 text-emerald-400 border border-slate-700">
+                  Global Hybrid 2026
+                </span>
+</div>
+<!-- Metric Grid -->
+<div class="grid grid-cols-2 gap-6 pt-6">
+<div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700">
+<div class="font-heading text-3xl font-extrabold text-amber-300">500+</div>
+<div class="text-xs text-slate-300 font-medium mt-1">Expected Participants</div>
+</div>
+<div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700">
+<div class="font-heading text-3xl font-extrabold text-sky-400">25+</div>
+<div class="text-xs text-slate-300 font-medium mt-1">Participating Countries</div>
+</div>
+<div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700">
+<div class="font-heading text-3xl font-extrabold text-ecogreen-light">5 Tracks</div>
+<div class="text-xs text-slate-300 font-medium mt-1">Interdisciplinary Scope</div>
+</div>
+<div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700">
+<div class="font-heading text-3xl font-extrabold text-rose-400">100%</div>
+<div class="text-xs text-slate-300 font-medium mt-1">Peer-Reviewed Indexing</div>
+</div>
+</div>
+<div class="mt-6 pt-5 border-t border-slate-700/80 flex items-center justify-between text-xs text-slate-300">
+<span>Keynotes: 4 Global Leaders</span>
+<span class="text-emerald-400 font-medium"><i class="fa-solid fa-certificate mr-1"></i>Official Certificates</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: AboutSection -->
+<!-- BEGIN: ConferenceTopics -->
+<section class="py-16 sm:py-24 bg-slate-50" id="topics">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Header -->
+<div class="text-center max-w-3xl mx-auto mb-14">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-deepblue/10 text-deepblue text-xs font-bold uppercase tracking-wider mb-3">
+<i class="fa-solid fa-layer-group"></i>
+<span>Call for Papers Tracks</span>
+</div>
+<h2 class="font-heading text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Five Focused Scientific Tracks
+          </h2>
+<p class="text-slate-600 text-sm sm:text-base mt-3">
+            Authors are invited to submit original research papers and case studies matching the symposium thematic pillars.
+          </p>
+</div>
+<!-- 5-Card Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Track 1 -->
+<div class="bg-white rounded-xl shadow-sm border border-slate-200 border-t-4 border-t-crimson p-6 hover:shadow-md transition-shadow duration-200 flex flex-col justify-between" data-purpose="track-card">
+<div>
+<div class="w-12 h-12 rounded-lg bg-crimson/10 text-crimson flex items-center justify-center text-xl mb-4 font-bold">
+<i class="fa-solid fa-bridge-water"></i>
+</div>
+<span class="text-xs font-bold tracking-wider text-deepblue uppercase">Track 01</span>
+<h3 class="font-heading text-lg font-bold text-slate-900 mt-1 mb-3">Sustainable Infrastructure</h3>
+<ul class="text-xs text-slate-600 space-y-2">
+<li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-crimson mt-0.5"></i>Smart and low-carbon cementitious materials</li>
+<li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-crimson mt-0.5"></i>Seismic retrofit &amp; structural durability</li>
+<li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-crimson mt-0.5"></i>Offshore &amp; coastal infrastructure resilience</li>
+<li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-crimson mt-0.5"></i>Digital twins and structural health monitoring</li>
+</ul>
+</div>
+<div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+<span class="font-semibold text-deepblue">FT UNHAS &amp; UTM FKA</span>
+<span class="text-[11px] bg-slate-100 px-2 py-0.5 rounded font-mono">CODE: SI-01</span>
+</div>
+</div>
+<!-- Track 2 -->
+<div class="bg-white rounded-xl shadow-sm border border-slate-200 border-t-4 border-t-deepblue p-6 hover:shadow-md transition-shadow duration-200 flex flex-col justify-between" data-purpose="track-card">
+<div>
+<div class="w-12 h-12 rounded-lg bg-deepblue/10 text-deepblue flex items-center justify-center text-xl mb-4 font-bold">
+<i class="fa-solid fa-train-subway"></i>
+</div>
+<span class="text-xs font-bold tracking-wider text-deepblue uppercase">Track 02</span>
+<h3 class="font-heading text-lg font-bold text-slate-900 mt-1 mb-3">Transportation Systems</h3>
+<ul class="text-xs text-slate-600 space-y-2">
+<li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-deepblue mt-0.5"></i>Electric vehicle charging infrastructure</li>
+<li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-deepblue mt-0.5"></i>Transit-Oriented Development (TOD)</li>
+<li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-deepblue mt-0.5"></i>Intelligent Transportation Systems (ITS) &amp; AI</li>
+<li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-deepblue mt-0.5"></i>Maritime &amp; intermodal logistics corridors</li>
+</ul>
+</div>
+<div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+<span class="font-semibold text-deepblue">UTM FKA &amp; FT UNHAS</span>
+<span class="text-[11px] bg-slate-100 px-2 py-0.5 rounded font-mono">CODE: TS-02</span>
+</div>
+</div>
+<!-- Track 3 -->
+<div class="bg-white rounded-xl shadow-sm border border-slate-200 border-t-4 border-t-ecogreen p-6 hover:shadow-md transition-shadow duration-200 flex flex-col justify-between" data-purpose="track-card">
+<div>
+<div class="w-12 h-12 rounded-lg bg-ecogreen/10 text-ecogreen flex items-center justify-center text-xl mb-4 font-bold">
+<i class="fa-solid fa-seedling"></i>
+</div>
+<span class="text-xs font-bold tracking-wider text-ecogreen uppercase">Track 03</span>
+<h3 class="font-heading text-lg font-bold text-slate-900 mt-1 mb-3">Environmental &amp; Climate</h3>
+<ul class="text-xs text-slate-600 space-y-2">
+<li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-ecogreen mt-0.5"></i>Integrated watershed &amp; urban flood modeling</li>
+<li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-ecogreen mt-0.5"></i>Solid waste upcycling &amp; circular economies</li>
+<li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-ecogreen mt-0.5"></i>Carbon capture, utilization &amp; storage (CCUS)</li>
+<li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-ecogreen mt-0.5"></i>GIS and remote sensing for hazard mapping</li>
+</ul>
+</div>
+<div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+<span class="font-semibold text-deepblue">Joint Department Committee</span>
+<span class="text-[11px] bg-slate-100 px-2 py-0.5 rounded font-mono">CODE: EC-03</span>
+</div>
+</div>
+<!-- Track 4 -->
+<div class="bg-white rounded-xl shadow-sm border border-slate-200 border-t-4 border-t-amber-600 p-6 hover:shadow-md transition-shadow duration-200 flex flex-col justify-between" data-purpose="track-card">
+<div>
+<div class="w-12 h-12 rounded-lg bg-amber-500/10 text-amber-600 flex items-center justify-center text-xl mb-4 font-bold">
+<i class="fa-solid fa-map-location-dot"></i>
+</div>
+<span class="text-xs font-bold tracking-wider text-amber-700 uppercase">Track 04</span>
+<h3 class="font-heading text-lg font-bold text-slate-900 mt-1 mb-3">Urban &amp; Regional Planning</h3>
+<ul class="text-xs text-slate-600 space-y-2">
+<li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-amber-600 mt-0.5"></i>Smart sustainable cities and spatial policies</li>
+<li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-amber-600 mt-0.5"></i>Informal settlements and inclusive regeneration</li>
+<li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-amber-600 mt-0.5"></i>Land-use adaptation and food security zones</li>
+<li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-amber-600 mt-0.5"></i>Regional governance &amp; cross-border corridors</li>
+</ul>
+</div>
+<div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+<span class="font-semibold text-deepblue">UTM FABU &amp; FT UNHAS</span>
+<span class="text-[11px] bg-slate-100 px-2 py-0.5 rounded font-mono">CODE: UP-04</span>
+</div>
+</div>
+<!-- Track 5 -->
+<div class="bg-white rounded-xl shadow-sm border border-slate-200 border-t-4 border-t-crimson p-6 hover:shadow-md transition-shadow duration-200 flex flex-col justify-between md:col-span-2 lg:col-span-1" data-purpose="track-card">
+<div>
+<div class="w-12 h-12 rounded-lg bg-crimson/10 text-crimson flex items-center justify-center text-xl mb-4 font-bold">
+<i class="fa-solid fa-building-columns"></i>
+</div>
+<span class="text-xs font-bold tracking-wider text-crimson uppercase">Track 05</span>
+<h3 class="font-heading text-lg font-bold text-slate-900 mt-1 mb-3">Sustainable Architecture</h3>
+<ul class="text-xs text-slate-600 space-y-2">
+<li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-crimson mt-0.5"></i>Passive climatic design &amp; thermal performance</li>
+<li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-crimson mt-0.5"></i>Vernacular wisdom &amp; indigenous architecture</li>
+<li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-crimson mt-0.5"></i>Net-Zero Energy Buildings (NZEB) standards</li>
+<li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-crimson mt-0.5"></i>Biophilic architecture and heritage conservation</li>
+</ul>
+</div>
+<div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+<span class="font-semibold text-deepblue">FT UNHAS &amp; UTM FABU</span>
+<span class="text-[11px] bg-slate-100 px-2 py-0.5 rounded font-mono">CODE: AR-05</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ConferenceTopics -->
+<!-- BEGIN: KeynoteSpeakers -->
+<section class="py-16 sm:py-24 bg-white border-b border-slate-200" id="speakers">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Header -->
+<div class="text-center max-w-3xl mx-auto mb-14">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson/10 text-crimson text-xs font-bold uppercase tracking-wider mb-3">
+<i class="fa-solid fa-microphone-lines"></i>
+<span>Distinguished Plenary</span>
+</div>
+<h2 class="font-heading text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Keynote Speakers
+          </h2>
+<p class="text-slate-600 text-sm sm:text-base mt-3">
+            Gaining visionary insights from world-leading researchers across Asia and Europe.
+          </p>
+</div>
+<!-- 4-Column Speaker Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Speaker 1 -->
+<div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 text-center flex flex-col items-center hover:border-slate-300 transition-all duration-200 shadow-sm" data-purpose="speaker-card">
+<img alt="Prof. Ir. Muhammad Arsyad" class="w-32 h-32 rounded-full object-cover shadow-md border-4 border-white mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpNvoJse7cHhDC3M6q5CUxpRHodKsaIZnJz_M1zVmdboFiiaeLbckqfCDPiO25x1fjl0g1GKtWbgPMGzq9xhvmtl70g0FrfL6Mbr9Ex2svwH2t11fnIXGkAG-aDYe6vE5HMm-d0fNdZ130dl4-0wkuy4R2QE0nHLs7fQf4pq6SLdgFI2u51KIACUEXaWQSX8215j4dEeaG3qCx-8v9O5RduQu1f-y-bDiiNFN_oVcF">
+<span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-crimson/10 text-crimson mb-2">
+              Structural Resilience
+            </span>
+<h3 class="font-heading font-bold text-slate-900 text-base">Prof. Ir. M. Arsyad, Ph.D.</h3>
+<p class="text-xs text-slate-500 font-medium mt-1">Dean &amp; Professor of Civil Engineering</p>
+<p class="text-xs font-semibold text-deepblue mt-1">Universitas Hasanuddin (UNHAS)</p>
+<p class="text-[11px] text-slate-500 mt-2 line-clamp-2">Leading authority on seismic resistance of maritime &amp; coastal structures in eastern Indonesia.</p>
+<button class="mt-4 text-xs font-semibold text-crimson hover:text-crimson-dark flex items-center gap-1.5 focus:outline-none" type="button">
+<span>View Bio &amp; Abstract</span>
+<i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+</button>
+</div>
+<!-- Speaker 2 -->
+<div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 text-center flex flex-col items-center hover:border-slate-300 transition-all duration-200 shadow-sm" data-purpose="speaker-card">
+<img alt="Prof. Dr. Roslan Zainal" class="w-32 h-32 rounded-full object-cover shadow-md border-4 border-white mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYi-oFLHNX0fBXhzjSEr2NLe7gH49E7baORtiIGxHTR8DxPAOw_Ye2EKlA5l-kZdUs1uL9koYN6vjm9tH8vLZ2Kb_AnkZHtCbQtx9a3ln_YWN8B6u7ZME23fdUN6kI6LExMj8x3r0ijmEEub44GpsSh-jvgC3rD_u-0bAuBWXfMqwo_EKnDaR_OyXIYxLIaJr2AQdF_uGx0R3WlHbG9vQVQTy_0ZmGL6Q7xJftOxYe">
+<span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-deepblue/10 text-deepblue mb-2">
+              Low-Carbon Materials
+            </span>
+<h3 class="font-heading font-bold text-slate-900 text-base">Prof. Dr. Roslan Zainal</h3>
+<p class="text-xs text-slate-500 font-medium mt-1">Faculty of Civil Engineering (FKA)</p>
+<p class="text-xs font-semibold text-deepblue mt-1">Universiti Teknologi Malaysia (UTM)</p>
+<p class="text-[11px] text-slate-500 mt-2 line-clamp-2">Pioneering green geopolymer concrete formulations and circular industrial binder systems.</p>
+<button class="mt-4 text-xs font-semibold text-crimson hover:text-crimson-dark flex items-center gap-1.5 focus:outline-none" type="button">
+<span>View Bio &amp; Abstract</span>
+<i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+</button>
+</div>
+<!-- Speaker 3 -->
+<div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 text-center flex flex-col items-center hover:border-slate-300 transition-all duration-200 shadow-sm" data-purpose="speaker-card">
+<img alt="Prof. Kenji Takahashi" class="w-32 h-32 rounded-full object-cover shadow-md border-4 border-white mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbE4VgzHZrJjw7zu6g0uPGOtYpTGvGzo5FSLdKEC3xv07PtGTjMzN2ZQaNQgL9CO4fvlpX1a0zCEcJg-CHqMzjBa597Mt3kaxwsVsd-xUhkoqp7q6AWrhCE4mLSv3EkpzDwd2ae9aFiFoYSxQ_4CH8Tu53Ui-Vs8mdW5FSna0yrSptCa84vQsyydE6n3XkHHhXxCK0FEoFBRfv4tXYIh7fvLH9BX330fa5TadfSbB4">
+<span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-ecogreen/15 text-ecogreen-dark mb-2">
+              Intelligent Mobility
+            </span>
+<h3 class="font-heading font-bold text-slate-900 text-base">Prof. Kenji Takahashi</h3>
+<p class="text-xs text-slate-500 font-medium mt-1">Dept. of Urban Engineering</p>
+<p class="text-xs font-semibold text-deepblue mt-1">The University of Tokyo, Japan</p>
+<p class="text-[11px] text-slate-500 mt-2 line-clamp-2">Specialist in Autonomous Transit networks, TOD spatial integration, and disaster EV routing.</p>
+<button class="mt-4 text-xs font-semibold text-crimson hover:text-crimson-dark flex items-center gap-1.5 focus:outline-none" type="button">
+<span>View Bio &amp; Abstract</span>
+<i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+</button>
+</div>
+<!-- Speaker 4 -->
+<div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 text-center flex flex-col items-center hover:border-slate-300 transition-all duration-200 shadow-sm" data-purpose="speaker-card">
+<img alt="Dr. Elena Van Der Meer" class="w-32 h-32 rounded-full object-cover shadow-md border-4 border-white mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5DVV6rZSsxukeGYpX6HK4YS3sMmGA7HvemXWQ7xWRkauxcRToC3Oi5ewLzqWVZO_4pdO7FKTl3sfuLrZrb_CV-uQjAtZ1wM_oKjpFD4e_zDmQTuntZkb5nP2VXlAf2cnAgj2p_XtiK6KrbuKI066NiuNuPFcvw9VATkFX_D1ct5YWXEpxNZKmN-NOmGgEvHsLt429vLOOxBPlIMa9ubVxM8PktktwU9fiqN34NtHY">
+<span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-amber-500/10 text-amber-700 mb-2">
+              Climate-Adaptive Architecture
+            </span>
+<h3 class="font-heading font-bold text-slate-900 text-base">Dr. Elena Van Der Meer</h3>
+<p class="text-xs text-slate-500 font-medium mt-1">Director of Resilient Built Environments</p>
+<p class="text-xs font-semibold text-deepblue mt-1">TU Delft, The Netherlands</p>
+<p class="text-[11px] text-slate-500 mt-2 line-clamp-2">Expert in water-sensitive urban design, delta urbanism, and circular bio-based architectural facades.</p>
+<button class="mt-4 text-xs font-semibold text-crimson hover:text-crimson-dark flex items-center gap-1.5 focus:outline-none" type="button">
+<span>View Bio &amp; Abstract</span>
+<i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- END: KeynoteSpeakers -->
+<!-- BEGIN: ImportantDatesTimeline -->
+<section class="py-16 sm:py-24 bg-slate-50 border-b border-slate-200" id="dates">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Header -->
+<div class="text-center max-w-3xl mx-auto mb-14">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-deepblue/10 text-deepblue text-xs font-bold uppercase tracking-wider mb-3">
+<i class="fa-solid fa-clock-rotate-left"></i>
+<span>Milestones &amp; Deadlines</span>
+</div>
+<h2 class="font-heading text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Important Dates
+          </h2>
+<p class="text-slate-600 text-sm sm:text-base mt-3">
+            Mark your calendar. Authors must adhere strictly to submission and camera-ready milestones.
+          </p>
+</div>
+<!-- Horizontal Timeline on Desktop / Vertical on Mobile -->
+<div class="relative">
+<!-- Continuous Line for Desktop -->
+<div class="hidden lg:block absolute top-1/2 left-4 right-4 h-1 bg-slate-200 -translate-y-1/2 z-0"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 relative z-10">
+<!-- Node 1: Completed -->
+<div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 font-bold flex items-center justify-center text-xs">
+<i class="fa-solid fa-check text-ecogreen"></i>
+</span>
+<span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-slate-100 text-slate-500">Passed</span>
+</div>
+<h4 class="font-heading font-bold text-slate-800 text-sm">Call for Abstracts</h4>
+<p class="text-xs text-slate-500 mt-1">Portal opens for international abstracts</p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-100 font-semibold text-xs text-slate-600">
+                March 15, 2026
+              </div>
+</div>
+<!-- Node 2: ACTIVE (Abstract Deadline) -->
+<div class="bg-white rounded-xl p-5 border-2 border-crimson shadow-md relative flex flex-col justify-between ring-2 ring-crimson/10">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2">
+<span class="pulse-badge inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-crimson text-white uppercase tracking-wider shadow">
+                  🔥 Active Call
+                </span>
+</div>
+<div class="pt-1">
+<div class="flex items-center justify-between mb-3">
+<span class="w-8 h-8 rounded-full bg-crimson text-white font-bold flex items-center justify-center text-xs shadow-sm">
+                    2
+                  </span>
+<span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-ecogreen/15 text-ecogreen-dark">Open</span>
+</div>
+<h4 class="font-heading font-bold text-slate-900 text-sm">Abstract Deadline</h4>
+<p class="text-xs text-slate-500 mt-1">Final date for structured abstract entry (max 300 words)</p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-100 font-bold text-xs text-crimson">
+                June 30, 2026
+              </div>
+</div>
+<!-- Node 3: Acceptance -->
+<div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="w-8 h-8 rounded-full bg-slate-100 text-deepblue font-bold flex items-center justify-center text-xs">
+                    3
+                  </span>
+<span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-slate-100 text-slate-500">Upcoming</span>
+</div>
+<h4 class="font-heading font-bold text-slate-800 text-sm">Notification</h4>
+<p class="text-xs text-slate-500 mt-1">Acceptance notices dispatched via email</p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-100 font-semibold text-xs text-slate-700">
+                July 25, 2026
+              </div>
+</div>
+<!-- Node 4: Full Paper -->
+<div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="w-8 h-8 rounded-full bg-slate-100 text-deepblue font-bold flex items-center justify-center text-xs">
+                    4
+                  </span>
+<span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-slate-100 text-slate-500">Upcoming</span>
+</div>
+<h4 class="font-heading font-bold text-slate-800 text-sm">Full Paper Due</h4>
+<p class="text-xs text-slate-500 mt-1">Camera-ready manuscripts for proceeding index</p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-100 font-semibold text-xs text-slate-700">
+                August 30, 2026
+              </div>
+</div>
+<!-- Node 5: Early Bird -->
+<div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="w-8 h-8 rounded-full bg-slate-100 text-deepblue font-bold flex items-center justify-center text-xs">
+                    5
+                  </span>
+<span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-slate-100 text-slate-500">Upcoming</span>
+</div>
+<h4 class="font-heading font-bold text-slate-800 text-sm">Early Registration</h4>
+<p class="text-xs text-slate-500 mt-1">Discounted participant registration deadline</p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-100 font-semibold text-xs text-slate-700">
+                September 15, 2026
+              </div>
+</div>
+<!-- Node 6: Conference -->
+<div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="w-8 h-8 rounded-full bg-deepblue text-white font-bold flex items-center justify-center text-xs shadow-sm">
+                    6
+                  </span>
+<span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-amber-100 text-amber-800">Event</span>
+</div>
+<h4 class="font-heading font-bold text-slate-900 text-sm">Conference Days</h4>
+<p class="text-xs text-slate-500 mt-1">Plenary, parallel tracks, gala dinner &amp; awards</p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-100 font-bold text-xs text-deepblue">
+                October 28–29, 2026
+              </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ImportantDatesTimeline -->
+<!-- BEGIN: PublicationAndPricing -->
+<section class="py-16 sm:py-24 bg-white border-b border-slate-200" id="registration">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Indexing Strip -->
+<div class="mb-16">
+<div class="text-center mb-6">
+<span class="text-xs font-bold uppercase tracking-wider text-slate-500">Indexed Publication &amp; Dissemination Partners</span>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10 grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100">
+<div class="flex items-center gap-2 text-slate-700 font-heading font-extrabold text-lg sm:text-xl">
+<i class="fa-solid fa-chart-line text-crimson"></i> Scopus
+            </div>
+<div class="flex items-center gap-2 text-slate-700 font-heading font-extrabold text-lg sm:text-xl">
+<i class="fa-solid fa-globe text-deepblue"></i> Web of Science™
+            </div>
+<div class="flex items-center gap-2 text-slate-700 font-heading font-extrabold text-lg sm:text-xl">
+<i class="fa-solid fa-microchip text-slate-800"></i> IEEE Xplore
+            </div>
+<div class="flex items-center gap-2 text-slate-700 font-heading font-extrabold text-lg sm:text-xl">
+<i class="fa-solid fa-book-open text-ecogreen"></i> Springer Nature
+            </div>
+<div class="flex items-center gap-2 text-slate-700 font-heading font-extrabold text-lg sm:text-xl">
+<i class="fa-solid fa-atom text-cyan-600"></i> IOP Conference Series
+            </div>
+</div>
+</div>
+<!-- Registration Pricing Table -->
+<div class="text-center max-w-3xl mx-auto mb-12">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-deepblue/10 text-deepblue text-xs font-bold uppercase tracking-wider mb-3">
+<i class="fa-solid fa-receipt"></i>
+<span>Transparent Academic Tiers</span>
+</div>
+<h2 class="font-heading text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Registration Fees
+          </h2>
+<p class="text-slate-600 text-sm sm:text-base mt-2">
+            Inclusive of indexed proceedings processing, peer review, symposium pack, keynote access, and gala dinner.
+          </p>
+</div>
+<!-- Comparison Table Container -->
+<div class="overflow-x-auto rounded-2xl shadow-lg border border-slate-200">
+<table class="w-full text-left border-collapse bg-white">
+<thead>
+<tr class="bg-crimson-gradient text-white">
+<th class="py-4 px-6 text-sm font-heading font-bold">Category</th>
+<th class="py-4 px-6 text-sm font-heading font-bold">Early Bird (Until Sep 15)</th>
+<th class="py-4 px-6 text-sm font-heading font-bold">Regular Fee</th>
+<th class="py-4 px-6 text-sm font-heading font-bold hidden md:table-cell">Inclusions</th>
+<th class="py-4 px-6 text-center text-sm font-heading font-bold">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 text-sm">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="py-4 px-6 font-semibold text-slate-900">
+                  International Presenter (Offline / Onsite)
+                  <span class="block text-xs font-normal text-slate-500">Foreign participants &amp; presenters</span>
+</td>
+<td class="py-4 px-6 font-bold text-crimson">USD 350</td>
+<td class="py-4 px-6 text-slate-600">USD 400</td>
+<td class="py-4 px-6 text-xs text-slate-600 hidden md:table-cell">1 Paper, Proceeding, Kit, Gala Dinner, Coffee Breaks</td>
+<td class="py-4 px-6 text-center">
+<a class="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-crimson hover:bg-crimson-hover text-white text-xs font-semibold shadow-sm transition" href="#register-portal">
+                    Register
+                  </a>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="py-4 px-6 font-semibold text-slate-900">
+                  Local / Indonesian Presenter (Offline)
+                  <span class="block text-xs font-normal text-slate-500">Non-UNHAS Indonesian Universities &amp; Institutes</span>
+</td>
+<td class="py-4 px-6 font-bold text-crimson">IDR 3.500.000</td>
+<td class="py-4 px-6 text-slate-600">IDR 4.000.000</td>
+<td class="py-4 px-6 text-xs text-slate-600 hidden md:table-cell">1 Paper, Proceeding, Kit, Gala Dinner, Coffee Breaks</td>
+<td class="py-4 px-6 text-center">
+<a class="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-crimson hover:bg-crimson-hover text-white text-xs font-semibold shadow-sm transition" href="#register-portal">
+                    Register
+                  </a>
+</td>
+</tr>
+<!-- Row 3: UTM & UNHAS Special Rate -->
+<tr class="bg-amber-50/40 hover:bg-amber-50 transition-colors">
+<td class="py-4 px-6 font-semibold text-slate-900">
+<div class="flex items-center gap-2">
+<span>FT UNHAS &amp; UTM Affiliated Presenter</span>
+<span class="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-200 text-amber-900">Partner Subsidy</span>
+</div>
+<span class="text-xs font-normal text-slate-500">Special co-host faculty member concession</span>
+</td>
+<td class="py-4 px-6 font-bold text-crimson">IDR 2.750.000 / MYR 850</td>
+<td class="py-4 px-6 text-slate-600">IDR 3.250.000 / MYR 1,000</td>
+<td class="py-4 px-6 text-xs text-slate-600 hidden md:table-cell">1 Paper, Proceeding, All Sessions, Partner Dinner</td>
+<td class="py-4 px-6 text-center">
+<a class="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-crimson hover:bg-crimson-hover text-white text-xs font-semibold shadow-sm transition" href="#register-portal">
+                    Register
+                  </a>
+</td>
+</tr>
+<!-- Row 4: Student Presenter -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="py-4 px-6 font-semibold text-slate-900">
+                  Student Presenter (Undergraduate / Postgrad)
+                  <span class="block text-xs font-normal text-slate-500">Must submit valid student ID upon registration</span>
+</td>
+<td class="py-4 px-6 font-bold text-crimson">USD 200 / IDR 2.200.000</td>
+<td class="py-4 px-6 text-slate-600">USD 250 / IDR 2.700.000</td>
+<td class="py-4 px-6 text-xs text-slate-600 hidden md:table-cell">1 Paper, Digital Proceeding, Certificate, Meals</td>
+<td class="py-4 px-6 text-center">
+<a class="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-crimson hover:bg-crimson-hover text-white text-xs font-semibold shadow-sm transition" href="#register-portal">
+                    Register
+                  </a>
+</td>
+</tr>
+<!-- Row 5: Virtual Presenter -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="py-4 px-6 font-semibold text-slate-900">
+                  Virtual / Online Presenter (Global)
+                  <span class="block text-xs font-normal text-slate-500">Live Zoom presentation and interactive Q&amp;A</span>
+</td>
+<td class="py-4 px-6 font-bold text-crimson">USD 220 / IDR 2.500.000</td>
+<td class="py-4 px-6 text-slate-600">USD 270 / IDR 3.000.000</td>
+<td class="py-4 px-6 text-xs text-slate-600 hidden md:table-cell">1 Paper, Scopus Proceeding, E-Certificate, Recording</td>
+<td class="py-4 px-6 text-center">
+<a class="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-crimson hover:bg-crimson-hover text-white text-xs font-semibold shadow-sm transition" href="#register-portal">
+                    Register
+                  </a>
+</td>
+</tr>
+<!-- Row 6: Non-Presenter Attendee -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="py-4 px-6 font-semibold text-slate-900">
+                  Non-Presenter Participant / Observer
+                  <span class="block text-xs font-normal text-slate-500">General attendee without paper submission</span>
+</td>
+<td class="py-4 px-6 font-bold text-crimson">USD 100 / IDR 1.000.000</td>
+<td class="py-4 px-6 text-slate-600">USD 120 / IDR 1.250.000</td>
+<td class="py-4 px-6 text-xs text-slate-600 hidden md:table-cell">Access to all keynotes, seminars &amp; certificate</td>
+<td class="py-4 px-6 text-center">
+<a class="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-deepblue hover:bg-deepblue-light text-white text-xs font-semibold shadow-sm transition" href="#register-portal">
+                    Join
+                  </a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- END: PublicationAndPricing -->
+<!-- BEGIN: VenueAndLogistics -->
+<section class="py-16 sm:py-24 bg-slate-50" id="venue">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Venue Details Left -->
+<div class="lg:col-span-6 space-y-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-deepblue/10 text-deepblue text-xs font-bold uppercase tracking-wider">
+<i class="fa-solid fa-map-pin"></i>
+<span>Host Destination</span>
+</div>
+<h2 class="font-heading text-2xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
+              Makassar: Gateway to Eastern Indonesia
+            </h2>
+<p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+              The symposium will take place at the iconic <strong>Grand Claro Hotel &amp; Convention Center Makassar</strong>, South Sulawesi. Renowned for its state-of-the-art auditorium facilities, spacious banquet rooms, and prime downtown location near historical waterfronts.
+            </p>
+<!-- Logistics Cards -->
+<div class="space-y-3 pt-2">
+<div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-slate-200">
+<div class="w-10 h-10 rounded-lg bg-deepblue/10 text-deepblue flex items-center justify-center shrink-0">
+<i class="fa-solid fa-plane-arrival"></i>
+</div>
+<div>
+<h4 class="font-heading font-bold text-sm text-slate-900">Airport Proximity</h4>
+<p class="text-xs text-slate-600 mt-0.5">25 minutes drive via toll road from Sultan Hasanuddin International Airport (UPG), offering non-stop flights to Singapore, Kuala Lumpur, and Jakarta.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-slate-200">
+<div class="w-10 h-10 rounded-lg bg-crimson/10 text-crimson flex items-center justify-center shrink-0">
+<i class="fa-solid fa-hotel"></i>
+</div>
+<div>
+<h4 class="font-heading font-bold text-sm text-slate-900">Exclusive Accommodation Rate</h4>
+<p class="text-xs text-slate-600 mt-0.5">Special negotiated rates available for IS-SITEPA participants at Grand Claro and neighboring 4-star hotels using booking code <span class="font-mono font-bold text-crimson">SITEPA26</span>.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-slate-200">
+<div class="w-10 h-10 rounded-lg bg-ecogreen/15 text-ecogreen flex items-center justify-center shrink-0">
+<i class="fa-solid fa-passport"></i>
+</div>
+<div>
+<h4 class="font-heading font-bold text-sm text-slate-900">Visa on Arrival (VoA) &amp; e-Visa</h4>
+<p class="text-xs text-slate-600 mt-0.5">Indonesia supports Visa on Arrival for 90+ nations. Official conference invitation letters for visa purposes will be generated immediately after paper acceptance.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive-Looking Map Card Right -->
+<div class="lg:col-span-6">
+<div class="bg-white rounded-2xl p-4 sm:p-6 shadow-md border border-slate-200">
+<!-- Venue Imagery Placeholder -->
+<div class="relative rounded-xl overflow-hidden mb-5">
+<img alt="Grand Claro Hotel Makassar" class="w-full h-56 sm:h-64 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1YyF1uhQumU7Mv6FYGckZO_AXymIOG3KAMbdjphzgfccuc-sXMmGIxjsSNgDJrFlYtA8qJzKriPW3-eCMzLvqX_ImdyUZJYwjxaF2rLKcqOTKgzx-tAFZ-pP2kLJvZTv1JUgTh8aV314QbvcyDFQYlHQIMu3TkB9GQY3co4bNs_WwphiBZJ12Id6OxcRuvxCpKqk1l1EhPauaQpJnvWKsqLhQcb4DtNJpkkJGkYij">
+<div class="absolute bottom-3 left-3 bg-black/75 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-2">
+<i class="fa-solid fa-location-dot text-rose-400"></i>
+<span>Jl. A. P. Pettarani No.03, Makassar</span>
+</div>
+</div>
+<!-- Geographical Coords & Quick Travel Distance -->
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-center">
+<div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+<div class="text-[11px] text-slate-500 uppercase font-semibold">Coordinates</div>
+<div class="font-mono text-xs font-bold text-slate-800 mt-0.5">5.158° S, 119.437° E</div>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+<div class="text-[11px] text-slate-500 uppercase font-semibold">Airport Transit</div>
+<div class="font-mono text-xs font-bold text-slate-800 mt-0.5">18.4 km (~25m)</div>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl border border-slate-100 col-span-2 sm:col-span-1">
+<div class="text-[11px] text-slate-500 uppercase font-semibold">Port of Makassar</div>
+<div class="font-mono text-xs font-bold text-slate-800 mt-0.5">6.8 km (~15m)</div>
+</div>
+</div>
+<div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
+<a class="inline-flex items-center gap-2 text-xs font-bold text-deepblue hover:text-deepblue-dark" href="https://maps.google.com" rel="noopener noreferrer" target="_blank">
+<i class="fa-solid fa-compass"></i>
+<span>Open in Google Maps</span>
+</a>
+<span class="text-xs text-slate-400">Time Zone: GMT+8 (WITA)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: VenueAndLogistics -->
+</main>
+<!-- BEGIN: MainFooter -->
+<footer class="bg-crimson-gradient text-slate-200 border-t border-white/10 pt-16 pb-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Footer 3-Column Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+<!-- Column 1: Logo & About (5 cols) -->
+<div class="lg:col-span-5 space-y-4">
+<div class="inline-block bg-white p-2.5 rounded-xl shadow-md">
+<img alt="IS-SITEPA Logo" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4_YqtIE8gU7Q0zoAr4UyMfvKCm32aIYzlRCQkmcJfjghDPmqbd7JpU2DZILIaBrSpzZ5RWJZT1i3INncTqr4Eei7iyMnOkF7mg7SyUPdRpSEqcRX4xoKHrJaHg1qCKwXMgP65fWB9raWMO42i1pf5re2n51Eq8esWyjSc0J-33jJjhfvgrAJxWd8hfPhcdsAoPm4B7cPOezFCc9oI50wciGslMal6h2BnULXXtIvFEjG7YBVXZD6aDw">
+</div>
+<h3 class="font-heading font-bold text-lg text-white">IS-SITEPA 2026</h3>
+<p class="text-xs text-slate-300 leading-relaxed max-w-sm">
+            International Symposium on Sustainable Infrastructure, Transportation, Environment, Planning, and Architecture. Jointly organized by Faculty of Engineering UNHAS and Universiti Teknologi Malaysia (UTM).
+          </p>
+<div class="flex items-center gap-3 pt-2">
+<span class="text-xs font-mono bg-white/10 px-2.5 py-1 rounded text-slate-300">ISSN: 2988-412X</span>
+<span class="text-xs font-mono bg-white/10 px-2.5 py-1 rounded text-slate-300">Scopus Indexed</span>
+</div>
+</div>
+<!-- Column 2: Quick Links (3 cols) -->
+<div class="lg:col-span-3 space-y-3">
+<h4 class="font-heading font-bold text-sm text-white uppercase tracking-wider">Quick Links</h4>
+<ul class="text-xs space-y-2.5">
+<li><a class="hover:text-amber-300 transition-colors" href="#about">Call for Papers (CFP)</a></li>
+<li><a class="hover:text-amber-300 transition-colors" href="#topics">Author Guidelines &amp; Template</a></li>
+<li><a class="hover:text-amber-300 transition-colors" href="#dates">Important Dates &amp; Submission</a></li>
+<li><a class="hover:text-amber-300 transition-colors" href="#registration">Registration &amp; Payment</a></li>
+<li><a class="hover:text-amber-300 transition-colors" href="#venue">Travel &amp; Accommodation</a></li>
+<li><a class="hover:text-amber-300 transition-colors" href="#">Organizing Committee &amp; Reviewers</a></li>
+<li><a class="hover:text-amber-300 transition-colors" href="#">Publication Ethics &amp; Malpractice</a></li>
+</ul>
+</div>
+<!-- Column 3: Secretariat Contact Information (4 cols) -->
+<div class="lg:col-span-4 space-y-3">
+<h4 class="font-heading font-bold text-sm text-white uppercase tracking-wider">Secretariat Offices</h4>
+<div class="space-y-3 text-xs text-slate-300">
+<!-- UNHAS Office -->
+<div class="flex items-start gap-2.5">
+<i class="fa-solid fa-building-columns text-amber-300 mt-1"></i>
+<div>
+<strong class="text-white">UNHAS Secretariat:</strong><br>
+                Faculty of Engineering, Gowa Campus, Universitas Hasanuddin, Jl. Poros Malino Km. 6, Borongloe, Gowa, South Sulawesi 92171, Indonesia.
+              </div>
+</div>
+<!-- UTM Office -->
+<div class="flex items-start gap-2.5">
+<i class="fa-solid fa-graduation-cap text-sky-300 mt-1"></i>
+<div>
+<strong class="text-white">UTM Secretariat:</strong><br>
+                Faculty of Civil Engineering (FKA) &amp; FABU, Universiti Teknologi Malaysia, 81310 Skudai, Johor Bahru, Malaysia.
+              </div>
+</div>
+<!-- Emails and Hotline -->
+<div class="pt-2 border-t border-white/10 space-y-1.5">
+<div class="flex items-center gap-2">
+<i class="fa-solid fa-envelope text-slate-400"></i>
+<a class="hover:text-amber-300 transition-colors font-mono" href="mailto:is-sitepa@unhas.ac.id">is-sitepa@unhas.ac.id</a>
+<span class="text-slate-400">/</span>
+<a class="hover:text-amber-300 transition-colors font-mono" href="mailto:sitepa@utm.my">sitepa@utm.my</a>
+</div>
+<div class="flex items-center gap-2">
+<i class="fa-brands fa-whatsapp text-emerald-400"></i>
+<a class="hover:text-amber-300 transition-colors font-mono" href="https://wa.me/62811444992">+62 811-4449-92 (Secretariat Hotline)</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Bar -->
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+<p>© 2026 IS-SITEPA. Jointly hosted by Universitas Hasanuddin &amp; Universiti Teknologi Malaysia. All rights reserved.</p>
+<div class="flex items-center gap-4">
+<a aria-label="Privacy Policy" class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<span>•</span>
+<a aria-label="Terms of Service" class="hover:text-white transition-colors" href="#">Terms of Service</a>
+<span>•</span>
+<a aria-label="Security" class="hover:text-white transition-colors" href="#">Security</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+<!-- BEGIN: Interactive JS -->
+<script data-purpose="mobile-menu-interactivity">
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      if (toggleBtn && mobileMenu) {
+        toggleBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+          });
+        });
+      }
+    });
+  </script>
+<script data-purpose="countdown-ticker">
+    document.addEventListener('DOMContentLoaded', () => {
+      // Conference Target: October 28, 2026
+      const targetDate = new Date('2026-10-28T09:00:00+08:00').getTime();
+
+      const daysEl = document.getElementById('days');
+      const hoursEl = document.getElementById('hours');
+      const minutesEl = document.getElementById('minutes');
+      const secondsEl = document.getElementById('seconds');
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const difference = targetDate - now;
+
+        if (difference > 0) {
+          const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+          if (daysEl) daysEl.innerText = days;
+          if (hoursEl) hoursEl.innerText = String(hours).padStart(2, '0');
+          if (minutesEl) minutesEl.innerText = String(minutes).padStart(2, '0');
+          if (secondsEl) secondsEl.innerText = String(seconds).padStart(2, '0');
+        }
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    });
+  </script>
+<!-- END: Interactive JS -->
+</body></html>
