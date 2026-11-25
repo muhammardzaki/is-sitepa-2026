@@ -1,15 +1,15 @@
 import React from 'react';
 import { siteConfig } from '../data/siteConfig';
 
-export default function Footer() {
+export default function Footer({ onNavigateSchedule }) {
   const quickLinks = [
+    { name: "Presentation Schedule", href: "/schedule", isSchedule: true },
     { name: "Call for Papers (CFP)", href: "#about" },
     { name: "Author Guidelines & Template", href: "#topics" },
-    { name: "Important Dates & Submission", href: "#dates" },
-    { name: "Registration & Payment Tiers", href: "#registration" },
+    { name: "Important Dates & Milestones", href: "#dates" },
+    { name: "Registration Portal", href: siteConfig.links.registerNow, isExternal: true },
     { name: "Travel & Accommodation", href: "#venue" },
-    { name: "Organizing & Scientific Committee", href: "#committee" },
-    { name: "Publication Ethics & Malpractice", href: "#registration" }
+    { name: "Organizing & Scientific Committee", href: "#committee" }
   ];
 
   return (
@@ -62,13 +62,26 @@ export default function Footer() {
             <ul className="text-xs space-y-2.5">
               {quickLinks.map((link, idx) => (
                 <li key={idx}>
-                  <a 
-                    href={link.href} 
-                    className="hover:text-amber-300 transition-colors flex items-center gap-1.5"
-                  >
-                    <i className="fa-solid fa-angle-right text-[10px] text-slate-400"></i>
-                    <span>{link.name}</span>
-                  </a>
+                  {link.isSchedule ? (
+                    <button
+                      type="button"
+                      onClick={onNavigateSchedule}
+                      className="hover:text-amber-300 transition-colors flex items-center gap-1.5 cursor-pointer text-left w-full"
+                    >
+                      <i className="fa-solid fa-angle-right text-[10px] text-slate-400"></i>
+                      <span>{link.name}</span>
+                    </button>
+                  ) : (
+                    <a 
+                      href={link.href} 
+                      target={link.isExternal ? "_blank" : undefined}
+                      rel={link.isExternal ? "noopener noreferrer" : undefined}
+                      className="hover:text-amber-300 transition-colors flex items-center gap-1.5"
+                    >
+                      <i className="fa-solid fa-angle-right text-[10px] text-slate-400"></i>
+                      <span>{link.name}</span>
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

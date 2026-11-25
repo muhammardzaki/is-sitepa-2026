@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -11,10 +11,61 @@ import Committee from './components/Committee';
 import Venue from './components/Venue';
 import Footer from './components/Footer';
 import Toast from './components/Toast';
+import PresentationSchedulePage from './pages/PresentationSchedulePage';
 
 export default function App() {
   const [selectedSpeaker, setSelectedSpeaker] = useState(null);
   const [toast, setToast] = useState({ visible: false, message: '' });
+
+  // Route state: 'home' or 'schedule'
+  const [currentRoute, setCurrentRoute] = useState(() => {
+    if (typeof window === 'undefined') return 'home';
+    const path = window.location.pathname.toLowerCase();
+    const hash = window.location.hash.toLowerCase();
+    if (path.includes('/schedule') || hash.includes('schedule')) {
+      return 'schedule';
+    }
+    return 'home';
+  });
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      const path = window.location.pathname.toLowerCase();
+      const hash = window.location.hash.toLowerCase();
+      if (path.includes('/schedule') || hash.includes('schedule')) {
+        setCurrentRoute('schedule');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        setCurrentRoute('home');
+      }
+    };
+
+    window.addEventListener('popstate', handleLocationChange);
+    window.addEventListener('hashchange', handleLocationChange);
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener('hashchange', handleLocationChange);
+    };
+  }, []);
+
+  const navigateToSchedule = () => {
+    setCurrentRoute('schedule');
+    window.history.pushState({}, '', '/schedule');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const navigateToHome = (hash = '') => {
+    setCurrentRoute('home');
+    window.history.pushState({}, '', '/' + hash);
+    if (hash) {
+      setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 50);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   const showToast = (message) => {
     setToast({ visible: true, message });
@@ -27,22 +78,30 @@ export default function App() {
     setToast({ visible: false, message: '' });
   };
 
+  if (currentRoute === 'schedule') {
+    return (
+      <PresentationSchedulePage 
+        onNavigateHome={() => navigateToHome('')}
+      />
+    );
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800 font-sans">
-      <Navbar />
+      <Navbar onNavigateSchedule={navigateToSchedule} />
 
       <main className="flex-grow">
-        <Hero />
+        <Hero onNavigateSchedule={navigateToSchedule} />
         <About />
         <Topics />
         <Speakers onSelectSpeaker={setSelectedSpeaker} />
-        <ImportantDates />
+        <ImportantDates onNavigateSchedule={navigateToSchedule} />
         <RegistrationFees />
         <Committee />
         <Venue onShowToast={showToast} />
       </main>
 
-      <Footer />
+      <Footer onNavigateSchedule={navigateToSchedule} />
 
       {/* Interactive Keynote Speaker Modal */}
       <SpeakerModal 

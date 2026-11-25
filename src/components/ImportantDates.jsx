@@ -1,7 +1,7 @@
 import React from 'react';
 import { importantDates } from '../data/dates';
 
-export default function ImportantDates() {
+export default function ImportantDates({ onNavigateSchedule }) {
   return (
     <section 
       id="dates" 
@@ -122,6 +122,31 @@ export default function ImportantDates() {
               );
             })}
           </div>
+        </div>
+
+        {/* Presentation Schedule Timetable Quick Link */}
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 p-4 sm:p-5 bg-white border border-slate-200 rounded-xl shadow-sm">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-rose-50 border border-rose-200 flex items-center justify-center shrink-0">
+              <i className="fa-solid fa-calendar-day text-[#560911] text-base"></i>
+            </div>
+            <div>
+              <h5 className="font-heading font-bold text-sm sm:text-base text-slate-900">
+                Official Paper Presentation Schedule Published
+              </h5>
+              <p className="text-xs sm:text-sm text-slate-600">
+                View the complete oral presentation roster for Track A (Infrastructure) and Track B (Transportation).
+              </p>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={onNavigateSchedule}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#560911] hover:bg-[#720E18] text-white font-semibold text-xs sm:text-sm shadow-sm transition-all duration-200 whitespace-nowrap cursor-pointer shrink-0"
+          >
+            <span>View Presentation Schedule</span>
+            <i className="fa-solid fa-arrow-right text-xs"></i>
+          </button>
         </div>
 
       </div>

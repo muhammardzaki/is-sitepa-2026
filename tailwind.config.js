@@ -27,7 +27,9 @@ export default {
       },
       fontFamily: {
         heading: ['"Plus Jakarta Sans"', 'sans-serif'],
-        sans: ['Inter', 'sans-serif'],
+        serif: ['"IBM Plex Serif"', 'serif'],
+        sans: ['"Inter"', '"Hanken Grotesk"', 'sans-serif'],
+        grotesk: ['"Hanken Grotesk"', 'sans-serif'],
       },
     },
   },
