@@ -116,14 +116,16 @@ export default function Navbar({ onNavigateSchedule }) {
 
           {/* Right Action Buttons */}
           <div className="flex items-center gap-2 xl:gap-3 shrink-0">
-            <button
-              type="button"
-              onClick={onNavigateSchedule}
-              className="hidden sm:inline-flex items-center gap-1.5 xl:gap-2 px-3 xl:px-4 py-2 rounded-lg border border-deepblue text-deepblue hover:bg-deepblue/5 text-xs xl:text-sm font-semibold transition-all duration-200 whitespace-nowrap cursor-pointer"
-            >
-              <i className="fa-solid fa-calendar-check text-xs"></i>
-              <span>Schedule</span>
-            </button>
+            {onNavigateSchedule && (
+              <button
+                type="button"
+                onClick={onNavigateSchedule}
+                className="hidden sm:inline-flex items-center gap-1.5 xl:gap-2 px-3 xl:px-4 py-2 rounded-lg border border-deepblue text-deepblue hover:bg-deepblue/5 text-xs xl:text-sm font-semibold transition-all duration-200 whitespace-nowrap cursor-pointer"
+              >
+                <i className="fa-solid fa-calendar-check text-xs"></i>
+                <span>Schedule</span>
+              </button>
+            )}
             <a
               href={siteConfig.links.registerNow}
               target="_blank"
@@ -172,16 +174,18 @@ export default function Navbar({ onNavigateSchedule }) {
             );
           })}
           <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
-            <button
-              type="button"
-              onClick={() => {
-                closeMobileMenu();
-                if (onNavigateSchedule) onNavigateSchedule();
-              }}
-              className="w-full text-center py-2.5 border border-deepblue text-deepblue rounded-lg font-semibold text-sm hover:bg-deepblue/5 transition-colors"
-            >
-              Presentation Schedule
-            </button>
+            {onNavigateSchedule && (
+              <button
+                type="button"
+                onClick={() => {
+                  closeMobileMenu();
+                  onNavigateSchedule();
+                }}
+                className="w-full text-center py-2.5 border border-deepblue text-deepblue rounded-lg font-semibold text-sm hover:bg-deepblue/5 transition-colors"
+              >
+                Presentation Schedule
+              </button>
+            )}
             <a
               href={siteConfig.links.registerNow}
               target="_blank"

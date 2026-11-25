@@ -3,7 +3,7 @@ import { siteConfig } from '../data/siteConfig';
 
 export default function Footer({ onNavigateSchedule }) {
   const quickLinks = [
-    { name: "Presentation Schedule", href: "/schedule", isSchedule: true },
+    ...(onNavigateSchedule ? [{ name: "Presentation Schedule", href: "/schedule", isSchedule: true }] : []),
     { name: "Call for Papers (CFP)", href: "#about" },
     { name: "Author Guidelines & Template", href: "#topics" },
     { name: "Important Dates & Milestones", href: "#dates" },

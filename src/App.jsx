@@ -17,9 +17,12 @@ export default function App() {
   const [selectedSpeaker, setSelectedSpeaker] = useState(null);
   const [toast, setToast] = useState({ visible: false, message: '' });
 
+  // Feature Flag: Set to true when ready to publish the schedule page
+  const ENABLE_SCHEDULE_PAGE = false;
+
   // Route state: 'home' or 'schedule'
   const [currentRoute, setCurrentRoute] = useState(() => {
-    if (typeof window === 'undefined') return 'home';
+    if (!ENABLE_SCHEDULE_PAGE || typeof window === 'undefined') return 'home';
     const path = window.location.pathname.toLowerCase();
     const hash = window.location.hash.toLowerCase();
     if (path.includes('/schedule') || hash.includes('schedule')) {
@@ -29,6 +32,14 @@ export default function App() {
   });
 
   useEffect(() => {
+    // If schedule page is disabled and user navigates directly to /schedule, redirect to home
+    if (!ENABLE_SCHEDULE_PAGE) {
+      if (typeof window !== 'undefined' && window.location.pathname.toLowerCase().includes('/schedule')) {
+        window.history.replaceState({}, '', '/');
+      }
+      return;
+    }
+
     const handleLocationChange = () => {
       const path = window.location.pathname.toLowerCase();
       const hash = window.location.hash.toLowerCase();
@@ -46,13 +57,13 @@ export default function App() {
       window.removeEventListener('popstate', handleLocationChange);
       window.removeEventListener('hashchange', handleLocationChange);
     };
-  }, []);
+  }, [ENABLE_SCHEDULE_PAGE]);
 
-  const navigateToSchedule = () => {
+  const navigateToSchedule = ENABLE_SCHEDULE_PAGE ? () => {
     setCurrentRoute('schedule');
     window.history.pushState({}, '', '/schedule');
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  } : undefined;
 
   const navigateToHome = (hash = '') => {
     setCurrentRoute('home');
@@ -78,7 +89,7 @@ export default function App() {
     setToast({ visible: false, message: '' });
   };
 
-  if (currentRoute === 'schedule') {
+  if (ENABLE_SCHEDULE_PAGE && currentRoute === 'schedule') {
     return (
       <PresentationSchedulePage 
         onNavigateHome={() => navigateToHome('')}
