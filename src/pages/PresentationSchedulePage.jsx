@@ -1,10 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import { siteConfig } from '../data/siteConfig';
-import { scheduleMetadata, paperSchedule, presentationGuidelines } from '../data/presentationSchedule';
+import { scheduleMetadata, tracksInfo, paperSchedule, presentationGuidelines } from '../data/presentationSchedule';
 
 export default function PresentationSchedulePage({ onNavigateHome }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [selectedTrack, setSelectedTrack] = useState('all'); // 'all', 'track-a', 'track-b'
+  const [selectedTrack, setSelectedTrack] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
 
   // Filter papers based on active track and search query
@@ -13,10 +13,6 @@ export default function PresentationSchedulePage({ onNavigateHome }) {
       // Track filter
       if (selectedTrack !== 'all' && item.track !== selectedTrack) {
         return false;
-      }
-      // If it's a break row, keep it when track is 'all' or 'track-b', unless searching
-      if (item.isBreak) {
-        return searchQuery.trim() === '';
       }
       // Search filter
       if (!searchQuery.trim()) return true;
@@ -30,14 +26,24 @@ export default function PresentationSchedulePage({ onNavigateHome }) {
     });
   }, [selectedTrack, searchQuery]);
 
-  // Count papers by track
-  const trackACount = paperSchedule.filter(p => p.track === 'track-a' && !p.isBreak).length;
-  const trackBCount = paperSchedule.filter(p => p.track === 'track-b' && !p.isBreak).length;
-  const totalCount = trackACount + trackBCount;
+  // Group filtered papers by track
+  const groupedTracks = useMemo(() => {
+    const tracksList = [
+      { id: "track-a", name: "A. Infrastructure Engineering", color: "crimson", room: "Dewan Premier Sarawak FABU (Room A)" },
+      { id: "track-b", name: "B. Transportation System Engineering", color: "deepblue", room: "Dewan Premier Sarawak FABU (Room B)" },
+      { id: "track-c", name: "C. Environmental Engineering", color: "ecogreen", room: "Dewan Premier Sarawak FABU (Room A)" },
+      { id: "track-d", name: "D. Architecture & Design", color: "amber", room: "Bilik Galeria" },
+      { id: "track-e", name: "E. Urban and Regional Planning", color: "indigo", room: "Bilik Galeria" }
+    ];
 
-  // Track A and Track B filtered subsets
-  const trackAPapers = filteredPapers.filter(p => p.track === 'track-a' && !p.isBreak);
-  const trackBPapers = filteredPapers.filter(p => p.track === 'track-b');
+    return tracksList
+      .filter(t => selectedTrack === 'all' || selectedTrack === t.id)
+      .map(t => ({
+        ...t,
+        papers: filteredPapers.filter(p => p.track === t.id)
+      }))
+      .filter(t => t.papers.length > 0);
+  }, [filteredPapers, selectedTrack]);
 
   const handlePrint = () => {
     window.print();
@@ -57,6 +63,18 @@ export default function PresentationSchedulePage({ onNavigateHome }) {
             {role}
           </span>
         );
+      case 'lecturer':
+        return (
+          <span className="inline-block mt-1 px-2 py-0.5 text-[11px] font-bold bg-teal-100 text-teal-900 border border-teal-300 rounded">
+            {role}
+          </span>
+        );
+      case 'researcher':
+        return (
+          <span className="inline-block mt-1 px-2 py-0.5 text-[11px] font-bold bg-cyan-100 text-cyan-900 border border-cyan-300 rounded">
+            {role}
+          </span>
+        );
       case 'professor':
         return (
           <span className="inline-block mt-1 px-2 py-0.5 text-[11px] font-bold bg-rose-100 text-[#560911] border border-rose-300 rounded">
@@ -70,6 +88,42 @@ export default function PresentationSchedulePage({ onNavigateHome }) {
             {role}
           </span>
         );
+    }
+  };
+
+  const getTrackHeaderStyle = (color) => {
+    switch (color) {
+      case 'deepblue':
+        return {
+          rowClass: "bg-sky-50 border-t-2 border-[#0A4D7C]",
+          textClass: "text-[#0A4D7C]",
+          dotClass: "bg-[#0A4D7C]"
+        };
+      case 'ecogreen':
+        return {
+          rowClass: "bg-emerald-50 border-t-2 border-[#4E8C2A]",
+          textClass: "text-[#4E8C2A]",
+          dotClass: "bg-[#4E8C2A]"
+        };
+      case 'amber':
+        return {
+          rowClass: "bg-amber-50 border-t-2 border-amber-800",
+          textClass: "text-amber-900",
+          dotClass: "bg-amber-800"
+        };
+      case 'indigo':
+        return {
+          rowClass: "bg-indigo-50 border-t-2 border-indigo-800",
+          textClass: "text-indigo-900",
+          dotClass: "bg-indigo-800"
+        };
+      case 'crimson':
+      default:
+        return {
+          rowClass: "bg-rose-50 border-t-2 border-[#560911]",
+          textClass: "text-[#560911]",
+          dotClass: "bg-[#560911]"
+        };
     }
   };
 
@@ -297,12 +351,12 @@ export default function PresentationSchedulePage({ onNavigateHome }) {
                 {/* 4 Stats & Indicator Cards */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3">
                   <div className="p-3 bg-white border border-slate-200 rounded-lg shadow-sm">
-                    <span className="block font-serif text-2xl font-bold text-[#560911]">14</span>
+                    <span className="block font-serif text-2xl font-bold text-[#560911]">37</span>
                     <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">Selected Papers</span>
                   </div>
                   <div className="p-3 bg-white border border-slate-200 rounded-lg shadow-sm">
-                    <span className="block font-serif text-2xl font-bold text-[#0A4D7C]">100%</span>
-                    <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">Free Access</span>
+                    <span className="block font-serif text-2xl font-bold text-[#0A4D7C]">5 Tracks</span>
+                    <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">Scientific Scopes</span>
                   </div>
                   <div className="p-3 bg-white border border-slate-200 rounded-lg shadow-sm">
                     <span className="block font-serif text-2xl font-bold text-[#4E8C2A]">Scopus</span>
@@ -379,7 +433,7 @@ export default function PresentationSchedulePage({ onNavigateHome }) {
         </section>
 
         {/* =========================================================================
-            SECTION 2: SCHEDULE OF PAPER PRESENTATION
+            SECTION 2: SCHEDULE OF PAPER PRESENTATION (NO TIME COLUMN)
         ========================================================================== */}
         <section className="w-full bg-white py-12 px-4 sm:px-6 lg:px-12 text-slate-900 border-b border-slate-200" id="presentation-schedule">
           <div className="max-w-7xl mx-auto flex flex-col gap-6">
@@ -409,49 +463,33 @@ export default function PresentationSchedulePage({ onNavigateHome }) {
                 </div>
                 <span className="text-slate-400 hidden sm:inline">•</span>
                 <div className="flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-[#0A4D7C] text-base">meeting_room</span>
-                  <span>Dewan Premier Sarawak FABU (Room A)</span>
+                  <span className="material-symbols-outlined text-[#0A4D7C] text-base">groups</span>
+                  <span>Parallel Tracks (Room A &amp; Bilik Galeria)</span>
                 </div>
               </div>
             </div>
 
             {/* Controls & Filter Toolbar */}
             <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 bg-slate-50 p-3 sm:p-4 border border-slate-300 rounded-lg" id="filter-toolbar">
-              {/* Interactive Track Tabs */}
+              {/* Interactive 5 Track Tabs */}
               <div className="flex flex-wrap items-center gap-2" id="filter-tabs">
-                <button
-                  type="button"
-                  onClick={() => setSelectedTrack('all')}
-                  className={`px-4 py-2 text-xs sm:text-sm font-bold rounded transition-all ${
-                    selectedTrack === 'all'
-                      ? 'bg-[#560911] text-white shadow'
-                      : 'bg-white hover:bg-slate-200 text-slate-800 border border-slate-300'
-                  }`}
-                >
-                  All Tracks ({totalCount} Papers)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setSelectedTrack('track-a')}
-                  className={`px-4 py-2 text-xs sm:text-sm font-bold rounded transition-all ${
-                    selectedTrack === 'track-a'
-                      ? 'bg-[#560911] text-white shadow'
-                      : 'bg-white hover:bg-slate-200 text-slate-800 border border-slate-300'
-                  }`}
-                >
-                  Track A: Infrastructure ({trackACount})
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setSelectedTrack('track-b')}
-                  className={`px-4 py-2 text-xs sm:text-sm font-bold rounded transition-all ${
-                    selectedTrack === 'track-b'
-                      ? 'bg-[#560911] text-white shadow'
-                      : 'bg-white hover:bg-slate-200 text-slate-800 border border-slate-300'
-                  }`}
-                >
-                  Track B: Transportation ({trackBCount})
-                </button>
+                {tracksInfo.map((t) => {
+                  const isActive = selectedTrack === t.id;
+                  return (
+                    <button
+                      key={t.id}
+                      type="button"
+                      onClick={() => setSelectedTrack(t.id)}
+                      className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-bold rounded transition-all cursor-pointer ${
+                        isActive
+                          ? 'bg-[#560911] text-white shadow'
+                          : 'bg-white hover:bg-slate-200 text-slate-800 border border-slate-300'
+                      }`}
+                    >
+                      {t.shortName} ({t.count})
+                    </button>
+                  );
+                })}
               </div>
 
               {/* Search Input & Export Button */}
@@ -481,7 +519,7 @@ export default function PresentationSchedulePage({ onNavigateHome }) {
                   type="button"
                   onClick={handlePrint}
                   title="Print / Save PDF"
-                  className="px-3.5 py-2 bg-white border border-slate-300 hover:bg-slate-100 text-[#560911] font-bold text-xs sm:text-sm rounded flex items-center gap-1.5 shrink-0 shadow-sm"
+                  className="px-3.5 py-2 bg-white border border-slate-300 hover:bg-slate-100 text-[#560911] font-bold text-xs sm:text-sm rounded flex items-center gap-1.5 shrink-0 shadow-sm cursor-pointer"
                 >
                   <span className="material-symbols-outlined text-base">download</span>
                   <span className="hidden sm:inline">Export</span>
@@ -489,7 +527,7 @@ export default function PresentationSchedulePage({ onNavigateHome }) {
               </div>
             </div>
 
-            {/* SCHEDULE TABLE */}
+            {/* SCHEDULE TABLE - TIME COLUMN REMOVED AS REQUESTED */}
             <div className="bg-white border border-slate-300 rounded-lg shadow-sm overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse" id="presentation-table">
@@ -500,140 +538,73 @@ export default function PresentationSchedulePage({ onNavigateHome }) {
                       <th scope="col" className="py-3 px-4 min-w-[170px]">Presenter</th>
                       <th scope="col" className="py-3 px-4 min-w-[220px]">Authors</th>
                       <th scope="col" className="py-3 px-4 min-w-[170px]">University</th>
-                      <th scope="col" className="py-3 px-3 w-28 text-center">Time</th>
-                      <th scope="col" className="py-3 px-3 w-36 text-center">Room</th>
+                      <th scope="col" className="py-3 px-4 min-w-[180px] text-center">Room</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-200 text-xs sm:text-sm">
-                    {/* Render Track A */}
-                    {(selectedTrack === 'all' || selectedTrack === 'track-a') && trackAPapers.length > 0 && (
-                      <>
-                        <tr className="bg-rose-50 border-t-2 border-[#560911]">
-                          <td colSpan="7" className="py-2.5 px-4 font-bold text-sm text-[#560911]">
-                            <div className="flex items-center justify-between">
-                              <div className="flex items-center gap-2">
-                                <span className="w-2.5 h-2.5 bg-[#560911] inline-block rounded-full"></span>
-                                <span className="uppercase tracking-wider">A. Infrastructure Engineering</span>
+                    {groupedTracks.map((group) => {
+                      const style = getTrackHeaderStyle(group.color);
+                      return (
+                        <React.Fragment key={group.id}>
+                          {/* Track Group Header */}
+                          <tr className={style.rowClass}>
+                            <td colSpan="6" className={`py-2.5 px-4 font-bold text-sm ${style.textClass}`}>
+                              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                                <div className="flex items-center gap-2">
+                                  <span className={`w-2.5 h-2.5 ${style.dotClass} inline-block rounded-full`}></span>
+                                  <span className="uppercase tracking-wider">{group.name}</span>
+                                </div>
+                                <div className="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                                  <i className="fa-solid fa-door-open text-xs text-slate-500"></i>
+                                  <span>{group.room}</span>
+                                  <span className="hidden sm:inline">•</span>
+                                  <span className="bg-white/80 px-2 py-0.5 rounded border border-slate-300 font-mono text-[11px]">
+                                    {group.papers.length} Papers
+                                  </span>
+                                </div>
                               </div>
-                              <span className="text-xs text-slate-700 uppercase font-semibold">
-                                Morning Session | 09:00 - 10:45 MYT
-                              </span>
-                            </div>
-                          </td>
-                        </tr>
-                        {trackAPapers.map((paper, idx) => (
-                          <tr
-                            key={paper.id}
-                            className={`hover:bg-slate-50 transition-colors ${
-                              idx % 2 === 1 ? 'bg-slate-50/50' : 'bg-white'
-                            }`}
-                          >
-                            <td className="py-3 px-3 text-center font-bold text-slate-700 align-top">
-                              {paper.no}
-                            </td>
-                            <td className="py-3 px-4 align-top">
-                              <div className="font-bold text-slate-900 leading-snug">
-                                {paper.title}
-                              </div>
-                            </td>
-                            <td className="py-3 px-4 align-top">
-                              <div className="font-bold text-slate-900">{paper.presenter}</div>
-                              {getRoleBadge(paper.roleType, paper.role)}
-                            </td>
-                            <td className="py-3 px-4 align-top text-slate-700 text-xs leading-relaxed font-medium">
-                              {paper.authors}
-                            </td>
-                            <td className="py-3 px-4 align-top font-bold text-slate-900">
-                              {paper.university}
-                            </td>
-                            <td className="py-3 px-3 align-top text-center font-mono text-xs text-[#560911] font-bold whitespace-nowrap bg-slate-100 rounded">
-                              {paper.time}
-                            </td>
-                            <td className="py-3 px-3 align-top text-center text-xs font-semibold text-slate-700">
-                              {paper.room}
                             </td>
                           </tr>
-                        ))}
-                      </>
-                    )}
 
-                    {/* Render Track B */}
-                    {(selectedTrack === 'all' || selectedTrack === 'track-b') && trackBPapers.length > 0 && (
-                      <>
-                        <tr className="bg-sky-50 border-t-2 border-[#0A4D7C]">
-                          <td colSpan="7" className="py-2.5 px-4 font-bold text-sm text-[#0A4D7C]">
-                            <div className="flex items-center justify-between">
-                              <div className="flex items-center gap-2">
-                                <span className="w-2.5 h-2.5 bg-[#0A4D7C] inline-block rounded-full"></span>
-                                <span className="uppercase tracking-wider">B. Transportation System</span>
-                              </div>
-                              <span className="text-xs text-slate-700 uppercase font-semibold">
-                                Midday &amp; Afternoon Session | 11:00 - 14:15 MYT
-                              </span>
-                            </div>
-                          </td>
-                        </tr>
-                        {trackBPapers.map((item, idx) => {
-                          if (item.isBreak) {
-                            return (
-                              <tr
-                                key={item.id}
-                                className="bg-slate-100 text-slate-900 font-bold border-y border-slate-300"
-                              >
-                                <td colSpan="7" className="py-3 px-4 text-center">
-                                  <div className="flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm text-slate-800">
-                                    <span className="font-mono bg-white px-2 py-0.5 rounded border border-slate-300 text-[#560911]">
-                                      {item.time} MYT
-                                    </span>
-                                    <i className="fa-solid fa-utensils text-amber-600"></i>
-                                    <span>{item.title}</span>
-                                    <span className="text-slate-500 font-normal">({item.room})</span>
-                                  </div>
-                                </td>
-                              </tr>
-                            );
-                          }
-                          return (
+                          {/* Track Papers */}
+                          {group.papers.map((paper, idx) => (
                             <tr
-                              key={item.id}
+                              key={paper.id}
                               className={`hover:bg-slate-50 transition-colors ${
                                 idx % 2 === 1 ? 'bg-slate-50/50' : 'bg-white'
                               }`}
                             >
                               <td className="py-3 px-3 text-center font-bold text-slate-700 align-top">
-                                {item.no}
+                                {paper.no}
                               </td>
                               <td className="py-3 px-4 align-top">
                                 <div className="font-bold text-slate-900 leading-snug">
-                                  {item.title}
+                                  {paper.title}
                                 </div>
                               </td>
                               <td className="py-3 px-4 align-top">
-                                <div className="font-bold text-slate-900">{item.presenter}</div>
-                                {getRoleBadge(item.roleType, item.role)}
+                                <div className="font-bold text-slate-900">{paper.presenter}</div>
+                                {getRoleBadge(paper.roleType, paper.role)}
                               </td>
                               <td className="py-3 px-4 align-top text-slate-700 text-xs leading-relaxed font-medium">
-                                {item.authors}
+                                {paper.authors}
                               </td>
                               <td className="py-3 px-4 align-top font-bold text-slate-900">
-                                {item.university}
+                                {paper.university}
                               </td>
-                              <td className="py-3 px-3 align-top text-center font-mono text-xs text-[#0A4D7C] font-bold whitespace-nowrap bg-slate-100 rounded">
-                                {item.time}
-                              </td>
-                              <td className="py-3 px-3 align-top text-center text-xs font-semibold text-slate-700">
-                                {item.room}
+                              <td className="py-3 px-4 align-top text-center text-xs font-semibold text-slate-700">
+                                {paper.room}
                               </td>
                             </tr>
-                          );
-                        })}
-                      </>
-                    )}
+                          ))}
+                        </React.Fragment>
+                      );
+                    })}
 
                     {/* Empty State */}
-                    {filteredPapers.length === 0 && (
+                    {groupedTracks.length === 0 && (
                       <tr>
-                        <td colSpan="7" className="py-12 text-center text-slate-500">
+                        <td colSpan="6" className="py-12 text-center text-slate-500">
                           <i className="fa-solid fa-magnifying-glass text-3xl text-slate-300 mb-3 block"></i>
                           <p className="font-semibold text-base text-slate-700">No matching presentations found</p>
                           <p className="text-xs text-slate-500 mt-1">Try adjusting your search query or track filter.</p>
@@ -643,7 +614,7 @@ export default function PresentationSchedulePage({ onNavigateHome }) {
                               setSelectedTrack('all');
                               setSearchQuery('');
                             }}
-                            className="mt-3 px-4 py-1.5 bg-[#560911] text-white rounded text-xs font-bold"
+                            className="mt-3 px-4 py-1.5 bg-[#560911] text-white rounded text-xs font-bold cursor-pointer"
                           >
                             Reset Filter
                           </button>
@@ -654,7 +625,7 @@ export default function PresentationSchedulePage({ onNavigateHome }) {
                 </table>
               </div>
 
-              {/* Table Legend & Time Allocation Strip */}
+              {/* Table Legend Strip */}
               <div className="p-4 bg-slate-50 border-t border-slate-300 flex flex-col sm:flex-row items-center justify-between text-slate-800 text-xs font-medium gap-3">
                 <div className="flex items-center gap-2">
                   <span className="material-symbols-outlined text-sm text-[#560911]">info</span>
@@ -662,7 +633,7 @@ export default function PresentationSchedulePage({ onNavigateHome }) {
                     Presentation time allocation: <strong>10 minutes</strong> oral delivery + <strong>5 minutes</strong> scientific Q&amp;A.
                   </span>
                 </div>
-                <div className="flex items-center gap-3 flex-wrap justify-center">
+                <div className="flex items-center gap-2 sm:gap-3 flex-wrap justify-center">
                   <span className="inline-flex items-center gap-1.5">
                     <span className="w-3 h-3 bg-blue-100 border border-blue-400 rounded-sm inline-block"></span>
                     <span>Master Student</span>
@@ -672,8 +643,16 @@ export default function PresentationSchedulePage({ onNavigateHome }) {
                     <span>Doctoral Student</span>
                   </span>
                   <span className="inline-flex items-center gap-1.5">
+                    <span className="w-3 h-3 bg-teal-100 border border-teal-400 rounded-sm inline-block"></span>
+                    <span>Lecturer / Researcher</span>
+                  </span>
+                  <span className="inline-flex items-center gap-1.5">
                     <span className="w-3 h-3 bg-amber-100 border border-amber-400 rounded-sm inline-block"></span>
-                    <span>Faculty / Professor</span>
+                    <span>Faculty</span>
+                  </span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <span className="w-3 h-3 bg-rose-100 border border-rose-400 rounded-sm inline-block"></span>
+                    <span>Professor</span>
                   </span>
                 </div>
               </div>
@@ -729,7 +708,7 @@ export default function PresentationSchedulePage({ onNavigateHome }) {
                 </div>
 
                 <p className="text-xs sm:text-sm text-slate-700 font-normal leading-normal">
-                  For presentation timing adjustments, technical accommodations, or special certificates, please contact the joint secretariat immediately:
+                  For presentation room arrangements, technical accommodations, or special certificates, please contact the joint secretariat immediately:
                 </p>
 
                 <div className="space-y-3">
